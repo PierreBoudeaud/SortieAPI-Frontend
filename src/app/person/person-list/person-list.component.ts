@@ -22,4 +22,9 @@ export class PersonListComponent implements OnInit {
       .then(people => this.people = people);
   }
 
+  delete(id) {
+    this.personService.delete(id)
+      .then(_person => this.people = this.people.filter(person => person.id !== _person.id));
+  }
+
 }

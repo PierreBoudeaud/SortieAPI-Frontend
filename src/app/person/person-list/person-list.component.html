@@ -16,7 +16,7 @@
       <tr *ngFor="let p of people">
         <td><p>{{p.name}}</p></td>
         <td><p>{{p.firstName}}</p></td>
-        <td><a routerLink="/people/{{p.id}}" class="btn btn-warning rounded-circle"><i class="fas fa-edit"></i></a><a class="btn btn-danger rounded-circle disabled"><i class="fas fa-trash"></i></a></td>
+        <td><a routerLink="/people/{{p.id}}" class="btn btn-warning rounded-circle"><i class="fas fa-edit"></i></a><a (click)="delete(p.id)" class="btn btn-danger rounded-circle"><i class="fas fa-trash"></i></a></td>
       </tr>
     </table>
   </div>
