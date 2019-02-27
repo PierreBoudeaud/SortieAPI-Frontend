@@ -16,7 +16,7 @@
       <tr *ngFor="let a of activities">
         <td><p>{{a.name}}</p></td>
         <td><p>{{a.city}} ({{a.postalCode}})</p></td>
-        <td><a routerLink="/activities/{{a.id}}" class="btn btn-warning rounded-circle"><i class="fas fa-edit"></i></a><a class="btn btn-danger rounded-circle" (click)="delete({{a.id}})"><i class="fas fa-trash"></i></a></td>
+        <td><a routerLink="/activities/{{a.id}}" class="btn btn-warning rounded-circle"><i class="fas fa-edit"></i></a><a class="btn btn-danger rounded-circle" (click)="delete(a.id)"><i class="fas fa-trash"></i></a></td>
       </tr>
     </table>
   </div>
