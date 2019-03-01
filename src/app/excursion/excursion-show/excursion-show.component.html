@@ -1,0 +1,60 @@
+<div class="row" *ngIf="excursion">
+  <div class="col col-4"></div>
+  <div class="col col-4">
+    <h2 style="margin: auto">{{excursion.name}}</h2>
+    <p><i class="far fa-calendar-alt"></i> {{excursion.date | date:'fullDate'}} à {{excursion.date | date:'shortTime'}}
+    </p>
+    <p><i class="fas fa-map-marker-alt"></i> {{excursion.activity.address}} {{excursion.activity.postalCode}}
+      {{excursion.activity.city}}</p>
+    <p><i class="far fa-user"></i> {{excursion.creator.firstName}} {{excursion.creator.name}}</p>
+    <p><i class="fas fa-ticket-alt"></i>
+      {{ excursion.nbPlaces - excursion.subscribePeople.length }}/{{ excursion.nbPlaces }} restantes</p>
+    <div *ngIf="excursion.weather">
+      <div class="col col-4"><b>Météo :</b></div>
+
+      <div class="col col-8" id="weather-details">
+        <div class="row center-text">
+          <div class="col col-3">
+            <img src="{{excursion.weather.icon}}">
+          </div>
+          <div class="col col-3">
+            <p><i class="fas fa-thermometer-three-quarters"></i></p>
+          </div>
+          <div class="col col-3">
+            <p><i class="fas fa-tint"></i></p>
+          </div>
+          <div class="col col-3">
+            <p><i class="fas fa-tachometer-alt"></i></p>
+          </div>
+        </div>
+        <div class="row center-text">
+          <div class="col col-3">
+            {{excursion.weather.description}}
+          </div>
+          <div class="col col-3">
+            {{excursion.weather.temperature}}°C
+          </div>
+          <div class="col col-3">
+            {{excursion.weather.humidity}}%
+          </div>
+          <div class="col col-3">
+            {{excursion.weather.pression}} hPa
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div *ngIf="excursion.subscribePeople.length > 0" class="row">
+      <div class="col col-12">
+        <b><i class="fas fa-users"></i> Participants:</b>
+        <div>
+          <ul>
+            <li *ngFor="let person of excursion.subscribePeople">{{person.firstName}} {{person.name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="map" class="map"></div>
