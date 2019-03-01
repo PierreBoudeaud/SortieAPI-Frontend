@@ -17,7 +17,7 @@ export class PersonService implements ICrudService<Person> {
     return this.http.get<Person[]>(this.URLPerson, { headers: this.headers })
     .toPromise()
     .then(persons => {
-      persons.forEach(person => this.fixDate);
+      persons.forEach(person => this.fixDate(person));
       return persons;
     });
   }
