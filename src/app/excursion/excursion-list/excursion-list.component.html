@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col col-4"></div>
+  <div class="col col-4">
+    <a routerLink="/excursions/new" class="btn btn-success rounded-circle"><i class="fas fa-plus"></i></a>
+  </div>
+</div>
+<div class="row">
+<div class="col col-4"></div>
+<div class="col col-5">
+  <table class="table table-striped">
+    <tr>
+      <th scope="col">Titre</th>
+      <th scope="col">Date</th>
+      <th scope="col"></th>
+    </tr>
+    <tr *ngFor="let e of excursions">
+      <td><p><a routerLink="/excursions/{{e.id}}">{{e.name}}</a></p></td>
+      <td>
+        <p>{{e.date | date:'fullDate'}}</p>
+        <p>{{e.date | date:'shortTime'}}</p>
+      </td>
+      <td><a routerLink="/excursions/edit/{{e.id}}" class="btn btn-warning rounded-circle"><i class="fas fa-edit"></i></a><a (click)="delete(e.id)" class="btn btn-danger rounded-circle"><i class="fas fa-trash"></i></a></td>
+    </tr>
+  </table>
+</div>
+</div>
