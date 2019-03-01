@@ -4,10 +4,10 @@ import { PersonListComponent } from './person-list/person-list.component';
 import { PersonCreateEditComponent } from './person-create-edit/person-create-edit.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'list' },
   { path: 'list', component: PersonListComponent },
   { path: 'new', component: PersonCreateEditComponent },
   { path: ':id', component: PersonCreateEditComponent },
+  { path: '**', redirectTo: 'list' },
 ];
 
 @NgModule({
