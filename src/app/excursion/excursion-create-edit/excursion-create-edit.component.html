@@ -1,0 +1,50 @@
+<h2 *ngIf="id > 0"></h2>
+<div class="row">
+  <div class="col col-4"></div>
+  <div class="col col-4">
+    <form *ngIf="excursionFormGroup" [formGroup]="excursionFormGroup" (ngSubmit)="onFormSubmit()">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Titre</span>
+        </div>
+        <input formControlName="name" placeholder="Entrer Nom" type="text" class="form-control"
+               aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Activité</span>
+        </div>
+        <select formControlName="activity">
+          <option [value]="activity.id" [selected]="activity.id === excursion.activity.id" *ngFor="let activity of activities">{{ activity.name }}</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Date</span>
+        </div>
+        <input formControlName="date" placeholder="Entrer Nom" type="date" class="form-control"
+               aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Créateur</span>
+        </div>
+        <select formControlName="creator">
+          <option [value]="person.id" [selected]="person.id === excursion.creator.id" *ngFor="let person of people">{{ person.firstName }} {{ person.name }}</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nombre de places</span>
+        </div>
+        <input formControlName="nbPlaces" placeholder="Entrer nombre de places" type="number" class="form-control"
+               aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div style="display: flex">
+        <button style="flex: 1" class="btn btn-outline-warning" type="submit">Enregistrer</button>
+        <a style="flex: 1" class="btn btn-outline-secondary" routerLink="/excursions/list">Annuler</a>
+      </div>
+
+    </form>
+  </div>
+</div>
